@@ -17,11 +17,13 @@ class MovieController extends Controller
     {
         $title = request()->input('title');
         $take = request()->input('take');
+        $skip = request()->input('skip');
+
 
         if($title & $take){
-          return Movie::search($title,$take);
+          return Movie::search($title,$take,$skip);
         }elseif($take){
-          return Movie::search($title,$take);
+          return Movie::search($title,$take,$skip);
         }
           return Movie::all();
     }
